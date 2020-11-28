@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommender</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <script type="text/javascript" src = "{{ url_for('static', filename='main.js') }}"></script>
+</head>
+<body>
+ <div class="container">
+  <div class="row">    
+   <div class="col-md-12">
+    <div class="input-group">
+     <div class="input-group-btn search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="background-color: white; border: 1px solid #ced4da; border-radius: 0;">
+            <span id="genreButton">Genre</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-genre scrollable-dropdown dropdown-menu" role="menu">
+            {% for item in list_genre %}
+            <li><a class="dropdown-item" href="#">{{ item }}</a></li>
+            {% endfor %}
+          </ul>
+      </div>   
+         <input type="text" class="form-control" name="x" id="search" placeholder="Search Movie Name">
+         <input type="text" class="form-control" name="x" id="searchDirector" placeholder="Search Director">
+         <input type="text" class="form-control" name="x" id="searchActor" placeholder="Search Actor">
+         <input type="button" class="next action-button" value="Submit" id="submitButton"/>
+    </div>
+   </div>
+  </div>
+  <br><br>
+  <div class="row" style="background-color:white;">
+   <div class="col-md-12">
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+          <th scope="col">Director</th>
+          <th scope="col">Actors</th>
+          <th scope="col">Avg Vote</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Country</th>
+          <th scope="col">Language</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+   </div>
+  </div>
+</div>
+
+</body>
+</html>
